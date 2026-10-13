@@ -1,0 +1,31 @@
+{
+  "name": "uniform-mcp",
+  "version": "0.1.0",
+  "description": "An MCP server for the Uniform DGX Spark platform: deploy models, follow them, read logs and GPU metrics from any MCP-capable agent.",
+  "type": "module",
+  "bin": {
+    "uniform-mcp": "dist/index.mjs"
+  },
+  "files": [
+    "dist/index.mjs",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --minify --platform=node --format=esm --target=node20 --outfile=dist/index.mjs --banner:js=\"#!/usr/bin/env node\nimport { createRequire as __createRequire } from 'node:module'; const require = __createRequire(import.meta.url);\"",
+    "typecheck": "tsc -p .",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm run build && git diff --exit-code -- dist && npm test"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@modelcontextprotocol/sdk": "1.32.1",
+    "@types/node": "^22.15.0",
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0",
+    "zod": "^4.1.0"
+  }
+}
