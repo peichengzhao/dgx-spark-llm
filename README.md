@@ -19,6 +19,10 @@ is the same plugin packaged for DeepSeek Harness (desktop, web or CLI) through
 its Claude Code mods bridge, with the same six tools and a band above the
 prompt in place of the status line and pane.
 
+**Any other MCP-capable agent?** [`uniform-mcp/`](uniform-mcp/README.md) serves
+the same six tools as an MCP server (stdio) for DeepSeek Harness, Claude Code,
+Cursor, Codex and the rest, with no plugin install and no UI.
+
 ## Install
 
 ```
@@ -119,4 +123,5 @@ uniform/
   types/index.d.ts                the contract for the values kept in $.state
   tests/uniform.test.ts           the tools, the command, the pane, the client
 uniform-dsh/                      the same plugin as a DeepSeek Harness bundle
+uniform-mcp/                      the same tools as an MCP server, for any agent
 ```
