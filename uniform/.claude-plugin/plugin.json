@@ -1,0 +1,23 @@
+{
+  "name": "uniform",
+  "version": "0.1.0",
+  "description": "Drive a Uniform DGX Spark platform from the session: deploy models, watch progress, read logs and GPU metrics.",
+  "author": {
+    "name": "uniform-dgxspark"
+  },
+  "types": "./types/index.d.ts",
+  "userConfig": {
+    "platform_url": {
+      "type": "string",
+      "title": "Platform URL",
+      "description": "Base URL of the Uniform control service, e.g. http://127.0.0.1:18180, or an SSH tunnel to a shared DGX Spark.",
+      "default": "http://127.0.0.1:18180"
+    },
+    "api_token": {
+      "type": "string",
+      "title": "API token",
+      "description": "The platform's UNIFORM_API_TOKEN. Leave empty when the platform runs without authentication.",
+      "default": ""
+    }
+  }
+}

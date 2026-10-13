@@ -1,0 +1,13 @@
+{
+  "name": "uniform-dgxspark",
+  "owner": {
+    "name": "uniform-dgxspark"
+  },
+  "description": "Claude Code plugins for the Uniform DGX Spark local model deployment platform.",
+  "plugins": [
+    {
+      "name": "uniform",
+      "source": "./uniform"
+    }
+  ]
+}

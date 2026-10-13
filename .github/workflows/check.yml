@@ -1,0 +1,28 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  plugin:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: Install Claude Code
+        run: npm install --global @anthropic-ai/claude-code
+
+      # The manifests, and every hook and call the module makes.
+      - name: Validate
+        run: claude plugin validate . --strict
+
+      # The plugin's own tests. These answer the engine's fetch from fixed
+      # bodies, so no platform and no credentials are needed.
+      - name: Test
+        run: claude plugin test ./uniform
