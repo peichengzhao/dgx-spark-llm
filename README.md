@@ -14,6 +14,11 @@ so the platform keeps owning the rules about what a session may deploy and how.
 
 The platform must already be running. This plugin does not start it.
 
+**Using DeepSeek Harness instead of Claude Code?** [`uniform-dsh/`](uniform-dsh/README.md)
+is the same plugin packaged for DeepSeek Harness (desktop, web or CLI) through
+its Claude Code mods bridge, with the same six tools and a band above the
+prompt in place of the status line and pane.
+
 ## Install
 
 ```
@@ -113,4 +118,5 @@ uniform/
   hooks/client.ts                 the platform's REST API, and its error shape
   types/index.d.ts                the contract for the values kept in $.state
   tests/uniform.test.ts           the tools, the command, the pane, the client
+uniform-dsh/                      the same plugin as a DeepSeek Harness bundle
 ```

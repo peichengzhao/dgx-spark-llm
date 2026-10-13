@@ -26,3 +26,21 @@ jobs:
       # bodies, so no platform and no credentials are needed.
       - name: Test
         run: claude plugin test ./uniform
+
+  dsh:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: uniform-dsh
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - run: npm ci
+
+      # Type-check, rebuild dist/ and fail if it differs from the committed
+      # build, then run the hooks through the bridge's own test kit.
+      - run: npm run check
