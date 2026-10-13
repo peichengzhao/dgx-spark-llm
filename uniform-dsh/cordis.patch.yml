@@ -1,0 +1,17 @@
+# The Claude Code mods bridge, its band above the prompt, and the Uniform mod.
+# The bridge must be mounted before any mod; the web band package draws what
+# the mod returns from `ui.render`. Both experimental packages are installed
+# into the profile beside this one (see README.md).
+#
+# Override `platform_url` / `api_token` in the profile's own cordis.patch.yml
+# by restating the whole `uniform` row: a later layer replaces a row's config.
+- insert:
+    - id: claude-code-mods
+      name: '@deepseek-ai/dsh-experimental-claude-code-mods'
+    - id: client-ui-claude-code-mods
+      name: '@deepseek-ai/dsh-experimental-client-ui-claude-code-mods'
+    - id: uniform
+      name: uniform-dsh
+      config:
+        platform_url: 'http://127.0.0.1:18180'
+        api_token: ''
