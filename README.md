@@ -21,7 +21,9 @@ prompt in place of the status line and pane.
 
 **Any other MCP-capable agent?** [`uniform-mcp/`](uniform-mcp/README.md) serves
 the same six tools as an MCP server (stdio) for DeepSeek Harness, Claude Code,
-Cursor, Codex and the rest, with no plugin install and no UI.
+Cursor, Codex and the rest, with no UI. For DeepSeek Harness it is also a bundle
+package: install the `uniform-mcp` directory from the desktop Plugins page and
+it appears under Installed, starting the server with the host's own runtime.
 
 ## Install
 

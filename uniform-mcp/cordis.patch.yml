@@ -1,0 +1,22 @@
+# DeepSeek Harness bundle layer: connect this package's MCP server through the
+# harness's own MCP client. The server is started with the host's own runtime
+# (`process.execPath`): plain Node under the dsh CLI, Electron in the desktop
+# app, where ELECTRON_RUN_AS_NODE makes it behave as Node. So no separate Node
+# install is needed.
+#
+# To point at another platform, restate this whole row (every config key) in
+# the profile's cordis.patch.yml without `insert`: a later layer replaces a
+# row's config rather than merging it. See README.md.
+- insert:
+    - id: mcp-uniform
+      name: '@deepseek-ai/dsh-mcp-client'
+      config:
+        serverName: uniform
+        transport: stdio
+        command: !!js process.execPath
+        args:
+          - !!js process.getBuiltinModule('node:path').join(ctx.get('profileContext').dir, 'node_modules', 'uniform-mcp', 'dist', 'index.mjs')
+        env:
+          ELECTRON_RUN_AS_NODE: '1'
+          UNIFORM_URL: http://127.0.0.1:18180
+          UNIFORM_API_TOKEN: ''
